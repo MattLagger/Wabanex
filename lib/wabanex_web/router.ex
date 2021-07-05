@@ -5,10 +5,11 @@ defmodule WabanexWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", WabanexWeb do
+  scope "/api" do
     pipe_through :api
 
-    get "/", IMCController, :index
+    forward "/graphql", Absinthe.Plug, schema: WabanexWeb.Schema
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: WabanexWeb.Schema
   end
 
   # Enables LiveDashboard only for development
