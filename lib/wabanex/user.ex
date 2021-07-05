@@ -20,7 +20,7 @@ defmodule Wabanex.User do
     |> validate_required(@fields)
     |> validate_length(:password, min: 6)
     |> validate_length(:name, min: 2)
-    |> validate_format(:password, ~r/@/)
+    |> validate_format(:email, ~r/@/)
     |> unique_constraint([:email])
   end
 end
