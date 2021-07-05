@@ -10,10 +10,36 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-alias Wabanex.{Repo, User}
+alias Wabanex.{Repo, User, Training}
 
-Repo.insert(%User{
+user = Repo.insert!(%User{
   email: "johndoe@email.com",
   name: "John Doe",
-  password: "password",
+  password: "password"
+})
+
+Repo.insert!(%Training{
+  start_date: ~D[2021-06-22],
+  end_date: ~D[2021-07-22],
+  user_id: user.id,
+  exercises: [
+    %{
+      name: "Triceps banco",
+      youtube_video_url: "https://www.youtube.com",
+      protocol_description: "regular",
+      repetitions: "2x6"
+    },
+    %{
+      name: "Triceps corda",
+      youtube_video_url: "https://www.youtube.com",
+      protocol_description: "regular",
+      repetitions: "3x12"
+    },
+    %{
+      name: "Triceps",
+      youtube_video_url: "https://www.youtube.com",
+      protocol_description: "regular",
+      repetitions: "4x10"
+    }
+  ]
 })
