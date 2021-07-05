@@ -9,3 +9,11 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Wabanex.{Repo, User}
+
+Repo.insert(%User{
+  email: "johndoe@email.com",
+  name: "John Doe",
+  password: "password",
+})
