@@ -1,9 +1,11 @@
 defmodule WabanexWeb.Schema.Types.Custom.UUID4 do
   @moduledoc """
   The UUID4 scalar type allows UUID4 compliant strings to be passed in and out.
-  Requires `{ :elixir_uuid, "~> 1.2" }` package: https://github.com/zyro/elixir-uuid
+  Requires `{ :ecto, ">= 0.0.0" }` package: https://github.com/elixir-ecto/ecto
   """
   use Absinthe.Schema.Notation
+
+  alias Ecto.UUID
 
   scalar :uuid4, name: "UUID4" do
     description("""
@@ -19,12 +21,7 @@ defmodule WabanexWeb.Schema.Types.Custom.UUID4 do
   @spec decode(Absinthe.Blueprint.Input.String.t()) :: {:ok, term()} | :error
   @spec decode(Absinthe.Blueprint.Input.Null.t()) :: {:ok, nil}
   defp decode(%Absinthe.Blueprint.Input.String{value: value}) do
-    with {:ok, result} <- UUID.info(value),
-         %{version: 4, uuid: uuid} <- Map.new(result) do
-      {:ok, uuid}
-    else
-      _ -> :error
-    end
+    UUID.cast(value)
   end
 
   defp decode(%Absinthe.Blueprint.Input.Null{}) do
