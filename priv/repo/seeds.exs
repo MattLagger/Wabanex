@@ -19,8 +19,34 @@ user = Repo.insert!(%User{
 })
 
 Repo.insert!(%Training{
-  start_date: ~D[2021-06-22],
-  end_date: ~D[2021-07-22],
+  start_date: ~D[2021-05-01],
+  end_date: ~D[2021-06-30],
+  user_id: user.id,
+  exercises: [
+    %{
+      name: "Triceps banco",
+      youtube_video_url: "https://www.youtube.com",
+      protocol_description: "regular",
+      repetitions: "2x6"
+    },
+    %{
+      name: "Triceps corda",
+      youtube_video_url: "https://www.youtube.com",
+      protocol_description: "regular",
+      repetitions: "3x12"
+    },
+    %{
+      name: "Triceps",
+      youtube_video_url: "https://www.youtube.com",
+      protocol_description: "regular",
+      repetitions: "4x10"
+    }
+  ]
+})
+
+Repo.insert!(%Training{
+  start_date: ~D[2021-07-01],
+  end_date: ~D[2021-08-31],
   user_id: user.id,
   exercises: [
     %{
