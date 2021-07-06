@@ -1,19 +1,20 @@
 # Wabanex
 
-To start your Phoenix server:
+Projeto wabanex da NLW Rocketseat
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server`
+Organizador de treinos e exercicios de academia
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## Tecnologias
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+ - Elixir
+ - Phoenix
+ - Postgresql
+ - GraphQL
 
-## Learn more
+## TODO
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+1. Adicionar campos peso, altura e imc ao usuario
+2. Criar mutations para alterar usuários e treinos
+3. Cobrir todos os testes com coverall usando excoveralls
+4. Dockerizar Projeto
+5. Documentar
